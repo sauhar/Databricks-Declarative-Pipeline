@@ -94,3 +94,21 @@ dlt.create_auto_cdc_flow(
     stored_as_scd_type=2
 )
 ```
+
+## Traditional Method
+
+```python
+df = spark.read.parquet("data")
+df = df.filter("id IS NOT NULL")
+df = df.dropDuplicates(["id"])
+df.write.saveAsTable("customers")
+```
+
+## Databricks Delta Live Tables (DLT) – Declarative Pipeline
+```python
+import dlt
+@dlt.table
+@dlt.expect_or_drop("valid_id", "id IS NOT NULL")
+def customers():
+    return spark.read.parquet("data").dropDuplicates(["id"])
+```
