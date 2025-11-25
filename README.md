@@ -52,6 +52,7 @@ df.write.saveAsTable("customers")
 ```
 
 ## Databricks Delta Live Tables (DLT) – Declarative Pipeline
+    The power of Declarative is that you focus on WHAT you want and DLT will take care of how it should be done.
 ```python
 import dlt
 @dlt.table
