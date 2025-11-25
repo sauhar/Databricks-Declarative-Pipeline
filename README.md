@@ -9,6 +9,7 @@ This project demonstrates a declarative approach to building data pipelines in D
 ## 🏗️ Architecture
 
 ![Pipeline Graph](pipeline_graph.png)
+![Pipeline Graph](business_sales.png)
 
 The pipeline follows a medallion architecture pattern:
 - **Bronze Layer**: Raw data ingestion
