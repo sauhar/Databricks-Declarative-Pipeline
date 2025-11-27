@@ -1,6 +1,6 @@
 # Databricks Declarative Pipeline
 
-A production-ready data pipeline implementation using Databricks Delta Live Tables (DLT) for declarative ETL/ELT workflows.
+Data pipeline implementation using Databricks Delta Live Tables (DLT) for declarative ETL/ELT workflows.
 
 ## 📋 Overview
 
