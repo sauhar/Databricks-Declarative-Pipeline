@@ -11,10 +11,12 @@ This project demonstrates a declarative approach to building data pipelines in D
 ![Pipeline Graph](pipeline_graph.png)
 ![Pipeline Graph](business_sales.png)
 
+
 The pipeline follows a medallion architecture pattern:
 - **Bronze Layer**: Raw data ingestion
 - **Silver Layer**: Cleaned and transformed data
 - **Gold Layer**: Business-ready aggregated datasets
+
 
 ## 📂 Project Structure
 ```
@@ -115,3 +117,15 @@ dlt.create_auto_cdc_flow(
     stored_as_scd_type=2
 )
 ```
+
+# Delta Live Tables & Spark Tips
+
+Here are some useful tips for working with Databricks Delta Live Tables (DLT) and Spark:
+
+- **`dlt.table`**: Creates a **materialized Delta table**. Can handle **batch or streaming** depending on the input DataFrame.  
+- **`dlt.create_streaming_table`**: Creates a **table from a streaming source** (Kafka, Kinesis, Autoloader, etc.).  
+- **`dlt.view`**: Creates a **non-materialized view** (logic only, no storage).  
+- **`spark.read.table`**: Reads a **Delta or managed table in batch mode**.  
+- **`spark.readStream.table`**: Reads a table as a **streaming source**, only if the table supports streaming reads.  
+- **`@dlt.append_flow`**: Custom/utility decorator to **merge two tables’ data into one**.  
+  *(Note: This is not a built-in Databricks function; typically used in custom pipelines to combine tables.)*
