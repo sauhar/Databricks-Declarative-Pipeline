@@ -69,12 +69,12 @@ def customers():
 Here are some useful tips for working with Databricks Delta Live Tables (DLT) and Spark:
 
 - **`dlt.table`**: Creates a **materialized Delta table**. Can handle **batch or streaming** depending on the input DataFrame.  
-- **`dlt.create_streaming_table`**: Creates a **table from a streaming source** (Kafka, Kinesis, Autoloader, etc.).  
+- **`dlt.create_streaming_table`**: Creates a **table from a streaming source** (Kafka, Kinesis, Autoloader, etc.).
 - **`dlt.view`**: Creates a **non-materialized view** (logic only, no storage).  
 - **`spark.read.table`**: Reads a **Delta or managed table in batch mode**.  
 - **`spark.readStream.table`**: Reads a table as a **streaming source**, only if the table supports streaming reads.  
 - **`@dlt.append_flow`**: Custom/utility decorator to **merge two tables’ data into one**.  
-  *(Note: This is not a built-in Databricks function; typically used in custom pipelines to combine tables.)*
+  *(Note: This is not a built-in Databricks function; typically used in custom pipelines to combine tables.)*. In this project we are using it in the ingestion_sales.
 
 ## 📦 Getting Started
 
